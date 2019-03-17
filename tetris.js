@@ -33,15 +33,14 @@ class Square {
 }
 let activeSqr = new Square(activeBoard, 4, 0, 'yellow');
 
-class Draw{
-   
-    animateSqr(sqr) {
-        setTimeout(function () {
-            sqr.moveDown();
-            requestAnimationFrame(this.animateSqr);
-        }, 800)
+
+class Draw {
+    constructor(shape) {
+        this.shape = shape;
+    }
+    showShape() {
+        this.shape.moveDown();
+        requestAnimationFrame(this.showShape.bind(this));
     }
 }
-let currentDraw = new Draw();
-currentDraw.animateSqr(activeSqr);
-
+new Draw(activeSqr).showShape();

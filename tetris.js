@@ -4,19 +4,8 @@ class Board {
         this.context = canvas.getContext('2d');
         this.gameBoard = Array(20).fill(null).map(() => Array(10).fill(0));
     }
-    drawSqr(obj) {
-        const sqrSize = 30;
-        this.context.fillStyle = obj.color;
-        this.context.fillRect(obj.xPosition * sqrSize, obj.yPosition * sqrSize, sqrSize, sqrSize);
-    }
-    removeSqr(obj) {
-        const sqrSize = 30;
-        this.context.fillStyle = ' #006064';
-        this.context.fillRect(obj.xPosition * sqrSize, obj.yPosition * sqrSize - sqrSize, sqrSize, sqrSize);
-    }
 }
 let activeBoard = new Board();
-
 
 class Square {
     constructor(board, xPosition, yPosition, color) {
@@ -25,9 +14,19 @@ class Square {
         this.yPosition = yPosition;
         this.color = color;
     }
+    drawSqr() {
+        const sqrSize = 30;
+        this.board.context.fillStyle = this.color;
+        this.board.context.fillRect(this.xPosition * sqrSize, this.yPosition * sqrSize, sqrSize, sqrSize);
+    }
+    removeSqr(obj) {
+        const sqrSize = 30;
+        this.board.context.fillStyle = ' #006064';
+        this.board.context.fillRect(this.xPosition * sqrSize, this.yPosition * sqrSize - sqrSize, sqrSize, sqrSize);
+    }
     moveDown() {
-        this.board.removeSqr(this);
-        this.board.drawSqr(this);
+        this.removeSqr(this);
+        this.drawSqr(this);
         this.yPosition++;
     }
 }
@@ -38,9 +37,9 @@ class Draw {
     constructor(shape) {
         this.shape = shape;
     }
-    showShape() {
+    animateShape() {
         this.shape.moveDown();
-        requestAnimationFrame(this.showShape.bind(this));
+        requestAnimationFrame(this.animateShape.bind(this));
     }
 }
-new Draw(activeSqr).showShape();
+new Draw(activeSqr).animateShape();

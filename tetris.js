@@ -25,10 +25,10 @@ class Square {
         this.board.context.fillRect(this.xPosition * sqrSize, this.yPosition * sqrSize - sqrSize, sqrSize, sqrSize);
     }
     moveDown() {
-        this.removeSqr(this);
-        this.drawSqr(this);
         this.yPosition++;
+        this.board.gameBoard[this.yPosition];
     }
+    dropDown = setInterval(this.moveDown.bind(this), 1000);
 }
 let activeSqr = new Square(activeBoard, 4, 0, 'yellow');
 
@@ -37,9 +37,9 @@ class Draw {
     constructor(shape) {
         this.shape = shape;
     }
-    animateShape() {
-        this.shape.moveDown();
-        requestAnimationFrame(this.animateShape.bind(this));
+    update() {
+        this.shape.drawSqr();
+        requestAnimationFrame(this.update.bind(this));
     }
 }
-new Draw(activeSqr).animateShape();
+new Draw(activeSqr).update();

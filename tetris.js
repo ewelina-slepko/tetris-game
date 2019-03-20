@@ -7,7 +7,7 @@ class Board {
 }
 let activeBoard = new Board();
 
-class Square {
+class Shape {
     constructor(board, xPosition, yPosition, color) {
         this.board = board;
         this.xPosition = Math.floor(Math.random() * xPosition);
@@ -31,7 +31,7 @@ class Square {
         }
     }
 }
-let activeSqr = new Square(activeBoard, 10, 0, 'yellow');
+let activeShape = new Shape(activeBoard, 10, 0, 'yellow');
 
 
 class Drawer {
@@ -52,8 +52,50 @@ class Drawer {
         requestAnimationFrame(this.update.bind(this));
     }
 }
-let drawing = new Drawer(activeSqr, activeBoard)
+let drawing = new Drawer(activeShape, activeBoard)
 drawing.update();
+
+
+class Game {
+    constructor(board, shape) {
+        this.board = board;
+        this.shape = shape;
+        window.addEventListener('keydown', this.pressKey.bind(this));
+    }
+    pressKey(e) {
+        switch (e.keyCode) {
+            case 37:
+                console.log('left');
+                this.shape.xPosition--;
+                break;
+            case 39:
+                console.log('right');
+                this.shape.xPosition++;
+                break;
+            case 40:
+                console.log('down');
+                this.shape.yPosition++;
+                break;
+        }
+    }
+}
+let game = new Game(activeBoard, activeShape);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //A z tą osobna klasą, to mi chodziło o te metody, żeby była klasa, która reprezentuje shape i tam masz 

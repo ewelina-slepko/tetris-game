@@ -10,7 +10,7 @@ let activeBoard = new Board();
 class Square {
     constructor(board, xPosition, yPosition, color) {
         this.board = board;
-        this.xPosition = xPosition;
+        this.xPosition = Math.floor(Math.random() * xPosition);
         this.yPosition = yPosition;
         this.color = color;
     }
@@ -31,7 +31,7 @@ class Square {
         }
     }
 }
-let activeSqr = new Square(activeBoard, 4, 0, 'yellow');
+let activeSqr = new Square(activeBoard, 10, 0, 'yellow');
 
 
 class Drawer {

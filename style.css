@@ -1,12 +1,14 @@
 body {
-    background-color: #00838f;
+    background-image: url("img/background-img.jpg");
+    background-size: 220vh 110vh;
 }
 
 canvas {
-    background-color: #006064;
+    background-color: #160C24;
+    /*#1A102B*/
     margin-right: auto;
     margin-left: auto;
     display: block;
-    border: outset 1px #d9d9e2;
+    border: inset 5px #301B42;
 
 }

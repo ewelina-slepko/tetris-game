@@ -21,35 +21,29 @@ class Square {
     }
     removeSqr() {
         this.board.context.clearRect(0, 0, 300, 600);
+        this.board.gameBoard[this.yPosition][this.xPosition] = 0;
+
     }
     moveDown() {
         this.yPosition++;
-        this.board.gameBoard[this.yPosition];
-        //+ przypisać jedynkę w pozycji na tablicy.
-        //console.log(this.board.gameBoard[this.yPosition]);
-
-        //A z tą osobna klasą, to mi chodziło o te metody, żeby była klasa, która reprezentuje shape i tam masz 
-        //moveDown i inne movy, a także inna klasa (np. Drawer), gdzie powinny metody drawBoard, czy clearBoard.
+        if (this.yPosition > 19) {
+            this.board.gameBoard[this.yPosition - 1][this.xPosition] = 1;
+        }
     }
 }
 let activeSqr = new Square(activeBoard, 4, 0, 'yellow');
 
 
-class Draw {
+class Drawer {
     constructor(shape) {
         this.shape = shape;
-        this.dropCounter = 0;
         this.lastTime = 0;
     }
-    update(time = 0) {
-        const deltaTime = time - this.lastTime;
-        this.lastTime = time;
-        this.dropCounter += deltaTime;
-
-        if (this.dropCounter > 1000) {
+    update(time) {
+        if (time - this.lastTime >= 200) {
             this.shape.moveDown();
-            this.dropCounter = 0;
-            if (this.shape.yPosition == 6) {
+            this.lastTime = time;
+            if (this.shape.yPosition == 20) {
                 return;
             }
         }
@@ -58,5 +52,9 @@ class Draw {
         requestAnimationFrame(this.update.bind(this));
     }
 }
-let drawing = new Draw(activeSqr, activeBoard)
+let drawing = new Drawer(activeSqr, activeBoard)
 drawing.update();
+
+
+//A z tą osobna klasą, to mi chodziło o te metody, żeby była klasa, która reprezentuje shape i tam masz 
+//moveDown i inne movy, a także inna klasa (np. Drawer), gdzie powinny metody drawBoard, czy clearBoard.

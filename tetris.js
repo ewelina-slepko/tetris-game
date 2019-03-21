@@ -5,7 +5,7 @@ class Board {
         this.gameBoard = Array(20).fill(null).map(() => Array(10).fill(0));
     }
 }
-let activeBoard = new Board();
+const activeBoard = new Board();
 
 class Shape {
     constructor(board, xPosition, yPosition, color) {
@@ -21,17 +21,22 @@ class Shape {
     }
     removeSqr() {
         this.board.context.clearRect(0, 0, 300, 600);
-        this.board.gameBoard[this.yPosition][this.xPosition] = 0;
-
     }
     moveDown() {
         this.yPosition++;
         if (this.yPosition > 19) {
             this.board.gameBoard[this.yPosition - 1][this.xPosition] = 1;
+            this.board.gameBoard[this.yPosition][this.xPosition] = 0;
         }
     }
+    moveLeft() {
+        this.xPosition--;
+    }
+    moveRight() {
+        this.xPosition++;
+    }
 }
-let activeShape = new Shape(activeBoard, 10, 0, 'yellow');
+const activeShape = new Shape(activeBoard, 10, 0, 'yellow');
 
 
 class Drawer {
@@ -40,7 +45,7 @@ class Drawer {
         this.lastTime = 0;
     }
     update(time) {
-        if (time - this.lastTime >= 200) {
+        if (time - this.lastTime >= 800) {
             this.shape.moveDown();
             this.lastTime = time;
             if (this.shape.yPosition == 20) {
@@ -52,7 +57,7 @@ class Drawer {
         requestAnimationFrame(this.update.bind(this));
     }
 }
-let drawing = new Drawer(activeShape, activeBoard)
+const drawing = new Drawer(activeShape, activeBoard)
 drawing.update();
 
 
@@ -60,26 +65,23 @@ class Game {
     constructor(board, shape) {
         this.board = board;
         this.shape = shape;
-        window.addEventListener('keydown', this.pressKey.bind(this));
+        window.addEventListener('keydown', this.onKeydown.bind(this));
     }
-    pressKey(e) {
+    onKeydown(e) {
         switch (e.keyCode) {
+            case 40:
+                this.shape.moveDown();
+                break;
             case 37:
-                console.log('left');
-                this.shape.xPosition--;
+                this.shape.moveLeft();
                 break;
             case 39:
-                console.log('right');
-                this.shape.xPosition++;
-                break;
-            case 40:
-                console.log('down');
-                this.shape.yPosition++;
+                this.shape.moveRight();
                 break;
         }
     }
 }
-let game = new Game(activeBoard, activeShape);
+const game = new Game(activeBoard, activeShape);
 
 
 

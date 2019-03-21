@@ -7,20 +7,16 @@ class Board {
 }
 const activeBoard = new Board();
 
+
+
+
+
 class Shape {
     constructor(board, xPosition, yPosition, color) {
         this.board = board;
         this.xPosition = Math.floor(Math.random() * xPosition);
         this.yPosition = yPosition;
         this.color = color;
-    }
-    drawSqr() {
-        const sqrSize = 30;
-        this.board.context.fillStyle = this.color;
-        this.board.context.fillRect(this.xPosition * sqrSize, this.yPosition * sqrSize, sqrSize, sqrSize);
-    }
-    removeSqr() {
-        this.board.context.clearRect(0, 0, 300, 600);
     }
     moveDown() {
         this.yPosition++;
@@ -39,8 +35,45 @@ class Shape {
 const activeShape = new Shape(activeBoard, 10, 0, 'yellow');
 
 
+
+
+
+class Canvas {
+    constructor(board, shape, color) {
+        this.board = board;
+        this.shape = shape; //roboczo
+    }
+    drawCanvas() {
+        const sqrSize = 30;
+        this.board.context.fillStyle = this.shape.color;
+        this.board.context.fillRect(this.shape.xPosition * sqrSize, this.shape.yPosition * sqrSize, sqrSize, sqrSize);
+
+        this.board.gameBoard.forEach((row, y) => {
+            row.forEach((value, x) => {
+                if (value !== 0) {
+
+                    // this.board.context.fillStyle = this.color;
+                    // this.board.context.fillRect((this.shape.x + 3) * sqrSize, (this.shape.y + 3) * sqrSize, sqrSize, sqrSize);
+                    //console.log(x, y);
+                }
+            });
+        });
+
+
+    }
+    removeCanvas() {
+        this.board.context.clearRect(0, 0, 300, 600);
+    }
+}
+const canvas = new Canvas(activeBoard, activeShape, 'pink');
+
+
+
+
+
 class Drawer {
-    constructor(shape) {
+    constructor(canvas, shape) {
+        this.canvas = canvas;
         this.shape = shape;
         this.lastTime = 0;
     }
@@ -52,18 +85,20 @@ class Drawer {
                 return;
             }
         }
-        this.shape.removeSqr();
-        this.shape.drawSqr();
+        this.canvas.removeCanvas();
+        this.canvas.drawCanvas();
         requestAnimationFrame(this.update.bind(this));
     }
 }
-const drawing = new Drawer(activeShape, activeBoard)
+const drawing = new Drawer(canvas, activeShape)
 drawing.update();
 
 
+
+
+
 class Game {
-    constructor(board, shape) {
-        this.board = board;
+    constructor(shape) {
         this.shape = shape;
         window.addEventListener('keydown', this.onKeydown.bind(this));
     }
@@ -81,24 +116,4 @@ class Game {
         }
     }
 }
-const game = new Game(activeBoard, activeShape);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//A z tą osobna klasą, to mi chodziło o te metody, żeby była klasa, która reprezentuje shape i tam masz 
-//moveDown i inne movy, a także inna klasa (np. Drawer), gdzie powinny metody drawBoard, czy clearBoard.
+const game = new Game(activeShape);

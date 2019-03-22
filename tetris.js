@@ -8,53 +8,57 @@ class Board {
 const activeBoard = new Board();
 
 
-
-
-
 class Shape {
-    constructor(board, xPosition, yPosition, color) {
+    constructor(board, xPos, yPos, color) {
         this.board = board;
-        this.xPosition = Math.floor(Math.random() * xPosition);
-        this.yPosition = yPosition;
+        this.xPos = xPos;
+        this.yPos = yPos;
         this.color = color;
     }
     moveDown() {
-        this.yPosition++;
-        if (this.yPosition > 19) {
-            this.board.gameBoard[this.yPosition - 1][this.xPosition] = 1;
-            this.board.gameBoard[this.yPosition][this.xPosition] = 0;
+        if (this.yPos < this.board.gameBoard.length - 1) {
+            this.yPos++;
+            this.board.gameBoard[this.yPos][this.xPos] = 1;
+            this.board.gameBoard[this.yPos - 1][this.xPos] = 0;
+        } else { // !!!!!!!!!!!!!!
+            this.yPos = 0;
         }
+
     }
     moveLeft() {
-        this.xPosition--;
+        if (this.xPos > 0) {
+            this.xPos--;
+            this.board.gameBoard[this.yPos][this.xPos + 1] = 0;
+        }
+
     }
     moveRight() {
-        this.xPosition++;
+        if (this.xPos < this.board.gameBoard[1].length - 1) {
+            this.xPos++;
+            this.board.gameBoard[this.yPos][this.xPos - 1] = 0;
+        }
+        // funkcja kolizji frame
     }
 }
-const activeShape = new Shape(activeBoard, 10, 0, 'yellow');
-
-
+const activeShape = new Shape(activeBoard, 4, 0, 'yellow');
 
 
 
 class Canvas {
-    constructor(board, shape, color) {
+    constructor(board, shape) {
         this.board = board;
-        this.shape = shape; //roboczo
+        this.shape = shape;
     }
     drawCanvas() {
         const sqrSize = 30;
         this.board.context.fillStyle = this.shape.color;
-        this.board.context.fillRect(this.shape.xPosition * sqrSize, this.shape.yPosition * sqrSize, sqrSize, sqrSize);
+        this.board.context.fillRect(this.shape.xPos * sqrSize, this.shape.yPos * sqrSize, sqrSize, sqrSize);
 
         this.board.gameBoard.forEach((row, y) => {
             row.forEach((value, x) => {
                 if (value !== 0) {
-
-                    // this.board.context.fillStyle = this.color;
-                    // this.board.context.fillRect((this.shape.x + 3) * sqrSize, (this.shape.y + 3) * sqrSize, sqrSize, sqrSize);
-                    //console.log(x, y);
+                    this.board.context.fillStyle = this.shape.color;
+                    this.board.context.fillRect(x * sqrSize, y * sqrSize, sqrSize, sqrSize);
                 }
             });
         });
@@ -65,9 +69,7 @@ class Canvas {
         this.board.context.clearRect(0, 0, 300, 600);
     }
 }
-const canvas = new Canvas(activeBoard, activeShape, 'pink');
-
-
+const canvas = new Canvas(activeBoard, activeShape);
 
 
 
@@ -78,12 +80,9 @@ class Drawer {
         this.lastTime = 0;
     }
     update(time) {
-        if (time - this.lastTime >= 800) {
+        if (time - this.lastTime >= 500) {
             this.shape.moveDown();
             this.lastTime = time;
-            if (this.shape.yPosition == 20) {
-                return;
-            }
         }
         this.canvas.removeCanvas();
         this.canvas.drawCanvas();
@@ -92,8 +91,6 @@ class Drawer {
 }
 const drawing = new Drawer(canvas, activeShape)
 drawing.update();
-
-
 
 
 

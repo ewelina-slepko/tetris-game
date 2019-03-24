@@ -36,13 +36,17 @@ canvas {
 .btn {
     background-color: #e7e7e7;
     color: black;
-    border: 3px outset #555555;
-    padding: 23px 28px;
+    border: 2px outset #555555;
+    padding: 13px 18px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
     margin: auto;
     cursor: pointer;
     border-radius: 12px;
+}
+
+.btn:focus {
+    outline: none;
+    border: 2px inset #555555;
 }

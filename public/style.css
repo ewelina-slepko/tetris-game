@@ -48,5 +48,8 @@ canvas {
 
 .btn:focus {
     outline: none;
+}
+
+.btn:active {
     border: 2px inset #555555;
 }

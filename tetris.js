@@ -1,7 +1,15 @@
+const colors = [
+    '#a34198',
+    '#faa32e',
+    '#ead019',
+    '#89c53f',
+    '#0fa1c6',
+];
+
 class Board {
     constructor() {
         const canvas = document.getElementById('tetris');
-        this.context = canvas.getContext('2d');
+        this.ctx = canvas.getContext('2d');
         this.gameBoard = Array(20).fill(null).map(() => Array(10).fill(0));
     }
 }
@@ -16,31 +24,36 @@ class Shape {
         this.color = color;
     }
     moveDown() {
-        if (this.yPos < this.board.gameBoard.length - 1) {
+        const isNotEndOfTheBoard = this.yPos < this.board.gameBoard.length - 1;
+
+        if (isNotEndOfTheBoard && this.board.gameBoard[this.yPos + 1][this.xPos] !== 1) {
             this.yPos++;
             this.board.gameBoard[this.yPos][this.xPos] = 1;
             this.board.gameBoard[this.yPos - 1][this.xPos] = 0;
-        } else { // !!!!!!!!!!!!!!
+        } else {
             this.yPos = 0;
+            let index = [Math.floor(Math.random() * colors.length)];
+            this.color = colors[index];
         }
-
     }
     moveLeft() {
-        if (this.xPos > 0) {
+        const isNotLeftEdge = this.xPos > 0;
+        const isLeftSideFree = this.board.gameBoard[this.yPos][this.xPos - 1] !== 1;
+        if (isNotLeftEdge && isLeftSideFree) {
             this.xPos--;
             this.board.gameBoard[this.yPos][this.xPos + 1] = 0;
         }
-
     }
     moveRight() {
-        if (this.xPos < this.board.gameBoard[1].length - 1) {
+        const isNotRightEdge = this.xPos < this.board.gameBoard[0].length - 1;
+        const isRightSideFree = this.board.gameBoard[this.yPos][this.xPos + 1] !== 1;
+        if (isNotRightEdge && isRightSideFree) {
             this.xPos++;
             this.board.gameBoard[this.yPos][this.xPos - 1] = 0;
         }
-        // funkcja kolizji frame
     }
 }
-const activeShape = new Shape(activeBoard, 4, 0, 'yellow');
+const activeShape = new Shape(activeBoard, 4, 0, colors[Math.floor(Math.random() * colors.length)]);
 
 
 
@@ -51,22 +64,21 @@ class Canvas {
     }
     drawCanvas() {
         const sqrSize = 30;
-        this.board.context.fillStyle = this.shape.color;
-        this.board.context.fillRect(this.shape.xPos * sqrSize, this.shape.yPos * sqrSize, sqrSize, sqrSize);
+        this.board.ctx.fillStyle = this.shape.color;
+        this.board.ctx.fillRect(this.shape.xPos * sqrSize, this.shape.yPos * sqrSize, sqrSize, sqrSize);
+
 
         this.board.gameBoard.forEach((row, y) => {
             row.forEach((value, x) => {
                 if (value !== 0) {
-                    this.board.context.fillStyle = this.shape.color;
-                    this.board.context.fillRect(x * sqrSize, y * sqrSize, sqrSize, sqrSize);
+                    this.board.ctx.fillStyle = this.shape.color;
+                    this.board.ctx.fillRect(x * sqrSize, y * sqrSize, sqrSize, sqrSize);
                 }
             });
         });
-
-
     }
     removeCanvas() {
-        this.board.context.clearRect(0, 0, 300, 600);
+        this.board.ctx.clearRect(0, 0, 300, 600);
     }
 }
 const canvas = new Canvas(activeBoard, activeShape);

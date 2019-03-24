@@ -1,0 +1,48 @@
+body {
+    background-image: url("img/background-img.jpg");
+    background-size: 220vh 110vh;
+}
+
+canvas {
+    background-color: rgb(22, 12, 36, 0.99);
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 8px;
+    display: block;
+    border: inset 5px #301B42;
+
+}
+
+.nav {
+    font-family: 'Inconsolata', monospace;
+    font-size: 30px;
+    color: #e7e7e7;
+    font-weight: 900;
+    text-align: center;
+    letter-spacing: 8px;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+}
+
+.buttons {
+    display: flex;
+    margin: auto;
+    width: 260px;
+}
+
+.btn {
+    background-color: #e7e7e7;
+    color: black;
+    border: 3px outset #555555;
+    padding: 23px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 12px;
+}

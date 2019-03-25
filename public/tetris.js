@@ -84,12 +84,12 @@ class Canvas {
     }
     drawGrid(width, height) {
         for (let x = 0; x < width; x += 30) {
-            for (let y = 0; y < height; y += 30) {
-                this.board.ctx.fillStyle = "#262728";
-                this.board.ctx.fillRect(y, 0, 1, height);
-                this.board.ctx.fillStyle = "#262728";
-                this.board.ctx.fillRect(0, y, width, 1);
-            }
+            this.board.ctx.fillStyle = "#262728";
+            this.board.ctx.fillRect(x, 0, 1, height);
+        }
+        for (let y = 0; y < height; y += 30) {
+            this.board.ctx.fillStyle = "#262728";
+            this.board.ctx.fillRect(0, y, width, 1);
         }
     }
 }
@@ -104,7 +104,7 @@ class Drawer {
         this.lastTime = 0;
     }
     update(time) {
-        if (time - this.lastTime >= 500) {
+        if (time - this.lastTime >= 300) {
             this.shape.moveDown();
             this.lastTime = time;
         }

@@ -4,13 +4,12 @@ body {
 }
 
 canvas {
-    background-color: #0A0000;
-    /*rgb(22, 12, 36, 0.99);*/
+    background-color: #141414;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 8px;
     display: block;
-    border: inset 5px #301B42;
+    border: inset 3px rgb(37, 30, 41);
 
 }
 

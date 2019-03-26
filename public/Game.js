@@ -1,23 +1,23 @@
 class Game {
-    constructor(shape) {
-        this.shape = shape;
+    constructor(sqr) {
+        this.sqr = sqr;
         window.addEventListener('keydown', this.onKeydown.bind(this));
-        document.getElementById('left').addEventListener('click', () => this.shape.moveLeft());
-        document.getElementById('down').addEventListener('click', () => this.shape.moveDown());
-        document.getElementById('right').addEventListener('click', () => this.shape.moveRight());
+        document.getElementById('left').addEventListener('click', () => this.sqr.moveLeft());
+        document.getElementById('down').addEventListener('click', () => this.sqr.moveDown());
+        document.getElementById('right').addEventListener('click', () => this.sqr.moveRight());
     }
     onKeydown(e) {
         switch (e.keyCode) {
             case 40:
-                this.shape.moveDown();
+                this.sqr.moveDown();
                 break;
             case 37:
-                this.shape.moveLeft();
+                this.sqr.moveLeft();
                 break;
             case 39:
-                this.shape.moveRight();
+                this.sqr.moveRight();
                 break;
         }
     }
 }
-const game = new Game(activeShape);
+const game = new Game(activeSqr);

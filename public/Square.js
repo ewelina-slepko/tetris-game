@@ -1,21 +1,32 @@
-class Shape {
+class Square {
     constructor(board, xPos, yPos, color) {
         this.board = board;
         this.xPos = xPos;
         this.yPos = yPos;
         this.color = color;
     }
+
+    detectCollide() {
+        S[0].forEach((row, y) => {
+            row.forEach((value, x) => {
+                if (value !== 0) {
+                    this.board.gameBoard[this.yPos][this.xPos] = 1;
+                    this.board.gameBoard[this.yPos - 1][this.xPos] = 0;
+                }
+            });
+        });
+    }
+
     moveDown() {
         const isNotEndOfTheBoard = this.yPos < this.board.gameBoard.length - 1;
-
         if (isNotEndOfTheBoard && this.board.gameBoard[this.yPos + 1][this.xPos] !== 1) {
             this.yPos++;
-            this.board.gameBoard[this.yPos][this.xPos] = 1;
-            this.board.gameBoard[this.yPos - 1][this.xPos] = 0;
+            this.detectCollide();
+
         } else {
             this.yPos = 0;
-            let index = [Math.floor(Math.random() * colors.length)];
-            this.color = colors[index];
+            let index = [Math.floor(Math.random() * color.length)];
+            this.color = color[index];
         }
     }
     moveLeft() {
@@ -35,4 +46,5 @@ class Shape {
         }
     }
 }
-const activeShape = new Shape(activeBoard, 4, 0, colors[Math.floor(Math.random() * colors.length)]);
+
+const activeSqr = new Square(activeBoard, 4, 0, color[Math.floor(Math.random() * color.length)]);

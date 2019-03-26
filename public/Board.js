@@ -1,11 +1,3 @@
-const colors = [
-    '#a34198',
-    '#faa32e',
-    '#ead019',
-    '#89c53f',
-    '#0fa1c6',
-];
-
 class Board {
     constructor() {
         const canvas = document.getElementById('tetris');

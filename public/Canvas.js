@@ -4,18 +4,13 @@ class Canvas {
         this.sqr = sqr;
         this.sqrSize = 30;
     }
+
     drawCanvas() {
-        this.board.gameBoard.forEach((row, yBoard) => {
-            row.forEach((value, xBoard) => {
+        this.board.gameBoard.forEach((row, y) => {
+            row.forEach((value, x) => {
                 if (value !== 0) {
-                    S[0].forEach((row, y) => {
-                        row.forEach((value, x) => {
-                            if (value !== 0) {
-                                this.board.ctx.fillStyle = this.sqr.color;
-                                this.board.ctx.fillRect((x + xBoard) * this.sqrSize, (y + yBoard) * this.sqrSize, this.sqrSize, this.sqrSize);
-                            }
-                        });
-                    });
+                    this.board.ctx.fillStyle = this.sqr.color;
+                    this.board.ctx.fillRect(x * this.sqrSize, y * this.sqrSize, this.sqrSize, this.sqrSize);
                 }
             });
         });

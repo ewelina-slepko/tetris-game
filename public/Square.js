@@ -10,16 +10,16 @@ class Square {
         S[0].forEach((row, y) => {
             row.forEach((value, x) => {
                 if (value !== 0) {
-                    this.board.gameBoard[this.yPos][this.xPos] = 1;
-                    this.board.gameBoard[this.yPos - 1][this.xPos] = 0;
+                    this.board.gameBoard[y + this.yPos][x + this.xPos] = 1;
+                    this.board.gameBoard[this.yPos - 1][x + this.xPos] = 0;
                 }
             });
         });
     }
 
     moveDown() {
-        const isNotEndOfTheBoard = this.yPos < this.board.gameBoard.length - 1;
-        if (isNotEndOfTheBoard && this.board.gameBoard[this.yPos + 1][this.xPos] !== 1) {
+        const isNotEndOfTheBoard = this.yPos < this.board.gameBoard.length - 2;
+        if (isNotEndOfTheBoard && this.board.gameBoard[this.yPos + 2][this.xPos] !== 1) {
             this.yPos++;
             this.detectCollide();
 

@@ -10,7 +10,7 @@ class Square {
         S[0].forEach((row, y) => {
             row.forEach((value, x) => {
                 if (value !== 0) {
-                    this.board.gameBoard[y + this.yPos][x + this.xPos] = 1;
+                    this.board.gameBoard[this.yPos + y][x + this.xPos] = 1;
                     this.board.gameBoard[this.yPos - 1][x + this.xPos] = 0;
                 }
             });
@@ -31,10 +31,10 @@ class Square {
     }
     moveLeft() {
         const isNotLeftEdge = this.xPos > 0;
-        const isLeftSideFree = this.board.gameBoard[this.yPos][this.xPos - 1] !== 1;
+        const isLeftSideFree = this.board.gameBoard[this.yPos][this.xPos - 2] !== 1;
         if (isNotLeftEdge && isLeftSideFree) {
             this.xPos--;
-            this.board.gameBoard[this.yPos][this.xPos + 1] = 0;
+            this.board.gameBoard[this.yPos][this.xPos + 2] = 0;
         }
     }
     moveRight() {

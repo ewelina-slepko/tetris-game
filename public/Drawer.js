@@ -1,12 +1,12 @@
 class Drawer {
-    constructor(canvas, sqr) {
+    constructor(canvas, shape) {
         this.canvas = canvas;
-        this.sqr = sqr;
+        this.shape = shape;
         this.lastTime = 0;
     }
     update(time) {
         if (time - this.lastTime >= 300) {
-            this.sqr.moveDown();
+            this.shape.moveDown();
             this.lastTime = time;
         }
         this.canvas.clearCanvas();
@@ -15,5 +15,5 @@ class Drawer {
         requestAnimationFrame(this.update.bind(this));
     }
 }
-const drawing = new Drawer(canvas, activeSqr)
+const drawing = new Drawer(canvas, activeShape)
 drawing.update();

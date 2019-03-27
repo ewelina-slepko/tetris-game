@@ -1,10 +1,12 @@
-class Square {
+class Shape {
     constructor(board, xPos, yPos, color) {
         this.board = board;
         this.xPos = xPos;
         this.yPos = yPos;
         this.color = color;
+        this.shape = [I, J, L, O, S, T, Z]
     }
+
     generateNewShape() {
         S[0].forEach((row, y) => {
             row.forEach((value, x) => {
@@ -23,16 +25,15 @@ class Square {
             });
         });
     }
-
-
-
     detectCollision() {
 
     }
 
     moveDown() {
         const isNotEndOfTheBoard = this.yPos < this.board.gameBoard.length - 1;
-        if (isNotEndOfTheBoard) {
+        // if (isNotEndOfTheBoard) {
+        if (this.detectCollision()) {
+            this.yPos--;
             this.generateNewShape();
 
         } else {
@@ -41,6 +42,7 @@ class Square {
             this.color = color[index];
         }
     }
+    //}
     moveLeft() {
         const isNotLeftEdge = this.xPos > 0;
         const isLeftSideFree = this.board.gameBoard[this.yPos][this.xPos - 2] !== 1;
@@ -59,4 +61,4 @@ class Square {
     }
 }
 
-const activeSqr = new Square(activeBoard, 3, 0, color[Math.floor(Math.random() * color.length)]);
+const activeShape = new Shape(activeBoard, 3, 0, color[Math.floor(Math.random() * color.length)]);

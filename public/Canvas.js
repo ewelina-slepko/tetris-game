@@ -1,7 +1,7 @@
 class Canvas {
-    constructor(board, sqr) {
+    constructor(board, shape) {
         this.board = board;
-        this.sqr = sqr;
+        this.shape = shape;
         this.sqrSize = 30;
     }
 
@@ -9,7 +9,7 @@ class Canvas {
         this.board.gameBoard.forEach((row, y) => {
             row.forEach((value, x) => {
                 if (value !== 0) {
-                    this.board.ctx.fillStyle = this.sqr.color;
+                    this.board.ctx.fillStyle = this.shape.color;
                     this.board.ctx.fillRect(x * this.sqrSize, y * this.sqrSize, this.sqrSize, this.sqrSize);
                 }
             });
@@ -29,4 +29,4 @@ class Canvas {
         }
     }
 }
-const canvas = new Canvas(activeBoard, activeSqr);
+const canvas = new Canvas(activeBoard, activeShape);

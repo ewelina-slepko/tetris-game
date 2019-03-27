@@ -6,7 +6,6 @@ class Canvas {
     }
 
     drawCanvas() {
-
         this.board.gameBoard.forEach((row, y) => {
             row.forEach((value, x) => {
                 if (value !== 0) {

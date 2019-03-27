@@ -5,23 +5,35 @@ class Square {
         this.yPos = yPos;
         this.color = color;
     }
-
-    detectCollide() {
+    generateNewShape() {
         S[0].forEach((row, y) => {
             row.forEach((value, x) => {
                 if (value !== 0) {
-                    this.board.gameBoard[this.yPos + y][x + this.xPos] = 1;
-                    this.board.gameBoard[this.yPos - 1][x + this.xPos] = 0;
+                    this.board.gameBoard[this.yPos + y][this.xPos + x] = 0;
+                }
+            });
+        });
+        this.yPos++;
+
+        S[0].forEach((row, y) => {
+            row.forEach((value, x) => {
+                if (value !== 0) {
+                    this.board.gameBoard[this.yPos + y][this.xPos + x] = 1;
                 }
             });
         });
     }
 
+
+
+    detectCollision() {
+
+    }
+
     moveDown() {
-        const isNotEndOfTheBoard = this.yPos < this.board.gameBoard.length - 2;
-        if (isNotEndOfTheBoard && this.board.gameBoard[this.yPos + 2][this.xPos] !== 1) {
-            this.yPos++;
-            this.detectCollide();
+        const isNotEndOfTheBoard = this.yPos < this.board.gameBoard.length - 1;
+        if (isNotEndOfTheBoard) {
+            this.generateNewShape();
 
         } else {
             this.yPos = 0;
@@ -47,4 +59,4 @@ class Square {
     }
 }
 
-const activeSqr = new Square(activeBoard, 4, 0, color[Math.floor(Math.random() * color.length)]);
+const activeSqr = new Square(activeBoard, 3, 0, color[Math.floor(Math.random() * color.length)]);

@@ -5,7 +5,7 @@ class Drawer {
         this.lastTime = 0;
     }
     update(time) {
-        if (time - this.lastTime >= 300) {
+        if (time - this.lastTime >= 1000) {
             this.shape.moveDown();
             this.lastTime = time;
         }

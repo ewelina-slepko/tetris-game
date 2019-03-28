@@ -7,7 +7,7 @@ class Shape {
         this.shape = [I, J, L, O, S, T, Z]
     }
 
-    generateNewShape() {
+    setZero() {
         S[0].forEach((row, y) => {
             row.forEach((value, x) => {
                 if (value !== 0) {
@@ -15,8 +15,21 @@ class Shape {
                 }
             });
         });
-        this.yPos++;
+    }
 
+    detectCollision() {
+        for (let y = 0; y < S[0].length; y++) {
+            for (let x = 0; x < S[0][y].length; x++) {
+                if (this.board.gameBoard[this.yPos + y + 2][this.xPos + x] !== 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+    }
+
+    setOne() {
         S[0].forEach((row, y) => {
             row.forEach((value, x) => {
                 if (value !== 0) {
@@ -25,16 +38,23 @@ class Shape {
             });
         });
     }
-    detectCollision() {
-
-    }
 
     moveDown() {
-        const isNotEndOfTheBoard = this.yPos < this.board.gameBoard.length - 1;
-        // if (isNotEndOfTheBoard) {
-        if (this.detectCollision()) {
-            this.yPos--;
-            this.generateNewShape();
+        const isNotEndOfTheBoard = this.yPos < this.board.gameBoard.length - 3;
+        if (isNotEndOfTheBoard) {
+            this.setZero();
+            this.yPos++;
+
+            if (this.detectCollision()) {
+                console.log('kolizja!');
+                this.yPos--;
+                this.setOne();
+                this.yPos = 0;
+                let index = [Math.floor(Math.random() * color.length)];
+                this.color = color[index];
+            }
+            this.setOne();
+
 
         } else {
             this.yPos = 0;
@@ -42,7 +62,8 @@ class Shape {
             this.color = color[index];
         }
     }
-    //}
+
+
     moveLeft() {
         const isNotLeftEdge = this.xPos > 0;
         const isLeftSideFree = this.board.gameBoard[this.yPos][this.xPos - 2] !== 1;

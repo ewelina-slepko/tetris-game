@@ -18,15 +18,16 @@ class Shape {
     }
 
     detectCollision() {
+        const isLeftEdge = this.xPos < 0;
+        const isRightEdge = this.xPos > this.board.gameBoard[0].length - 3;
         for (let y = 0; y < S[0].length; y++) {
             for (let x = 0; x < S[0][y].length; x++) {
-                if (this.board.gameBoard[this.yPos + y + 2][this.xPos + x] !== 0) {
+                if (isLeftEdge || isRightEdge || this.board.gameBoard[this.yPos + y][this.xPos + x] !== 0 && S[0][y][x] !== 0) {
                     return true;
-                } else {
-                    return false;
                 }
             }
         }
+        return false;
     }
 
     setOne() {
@@ -46,39 +47,37 @@ class Shape {
             this.yPos++;
 
             if (this.detectCollision()) {
-                console.log('kolizja!');
                 this.yPos--;
                 this.setOne();
                 this.yPos = 0;
-                let index = [Math.floor(Math.random() * color.length)];
-                this.color = color[index];
             }
             this.setOne();
-
-
         } else {
             this.yPos = 0;
-            let index = [Math.floor(Math.random() * color.length)];
-            this.color = color[index];
         }
     }
 
 
     moveLeft() {
-        const isNotLeftEdge = this.xPos > 0;
-        const isLeftSideFree = this.board.gameBoard[this.yPos][this.xPos - 2] !== 1;
-        if (isNotLeftEdge && isLeftSideFree) {
-            this.xPos--;
-            this.board.gameBoard[this.yPos][this.xPos + 2] = 0;
-        }
-    }
-    moveRight() {
-        const isNotRightEdge = this.xPos < this.board.gameBoard[0].length - 1;
-        const isRightSideFree = this.board.gameBoard[this.yPos][this.xPos + 1] !== 1;
-        if (isNotRightEdge && isRightSideFree) {
+        this.setZero();
+        this.xPos--;
+
+        if (this.detectCollision()) {
             this.xPos++;
-            this.board.gameBoard[this.yPos][this.xPos - 1] = 0;
+            this.setOne();
         }
+        this.setOne();
+    }
+
+    moveRight() {
+        this.setZero();
+        this.xPos++;
+
+        if (this.detectCollision()) {
+            this.xPos--;
+            this.setOne();
+        }
+        this.setOne();
     }
 }
 

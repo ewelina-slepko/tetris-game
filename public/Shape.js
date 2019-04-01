@@ -39,6 +39,7 @@ class Shape {
     }
 
     moveDown() {
+
         this.setValueOnTheBoard(0);
         this.yPos++;
 
@@ -46,7 +47,6 @@ class Shape {
             this.yPos--;
             this.setValueOnTheBoard(this.randomShape[0]);
             this.yPos = 0;
-            this.xPos = 3;
             this.randomShape = shape[Math.floor(Math.random() * shape.length)];
         }
         this.setValueOnTheBoard(this.randomShape[0]);

@@ -174,3 +174,5 @@ const color = [
     '#89c53f',
     '#0fa1c6',
 ];
+
+const shape = [I, J, L, O, S, T, Z];

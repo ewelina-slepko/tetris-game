@@ -9,7 +9,7 @@ class Canvas {
         this.board.gameBoard.forEach((row, y) => {
             row.forEach((value, x) => {
                 if (value !== 0) {
-                    this.board.ctx.fillStyle = this.shape.color;
+                    this.board.ctx.fillStyle = value;
                     this.board.ctx.fillRect(x * this.sqrSize, y * this.sqrSize, this.sqrSize, this.sqrSize);
                 }
             });

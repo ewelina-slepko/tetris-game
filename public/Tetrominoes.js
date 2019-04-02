@@ -1,4 +1,5 @@
 const I = [
+<<<<<<< Updated upstream
     ['#a34198'],
     [
         [0, 0, 0, 0],
@@ -6,6 +7,16 @@ const I = [
         [0, 0, 0, 0],
         [0, 0, 0, 0],
     ],
+=======
+    colors = [
+        '#a34198',
+        '#faa32e',
+        '#ead019',
+        '#89c53f',
+        '#0fa1c6',
+    ],
+
+>>>>>>> Stashed changes
     [
         [0, 0, 1, 0],
         [0, 0, 1, 0],
@@ -27,7 +38,13 @@ const I = [
 ];
 
 const J = [
-    ['#faa32e'],
+    colors = [
+        '#a34198',
+        '#faa32e',
+        '#ead019',
+        '#89c53f',
+        '#0fa1c6',
+    ],
     [
         [2, 0, 0],
         [2, 2, 2],
@@ -52,11 +69,20 @@ const J = [
 ];
 
 const L = [
+<<<<<<< Updated upstream
     ['#ead019'],
     [
         [0, 0, 3],
         [3, 3, 3],
         [0, 0, 0]
+=======
+    colors = [
+        '#a34198',
+        '#faa32e',
+        '#ead019',
+        '#89c53f',
+        '#0fa1c6',
+>>>>>>> Stashed changes
     ],
     [
         [0, 3, 0],
@@ -76,7 +102,13 @@ const L = [
 ];
 
 const O = [
-    ['#89c53f'],
+    colors = [
+        '#a34198',
+        '#faa32e',
+        '#ead019',
+        '#89c53f',
+        '#0fa1c6',
+    ],
     [
         [0, 0, 0, 0],
         [0, 4, 4, 0],
@@ -104,7 +136,17 @@ const O = [
 ];
 
 const S = [
+<<<<<<< Updated upstream
     ['#0fa1c6'],
+=======
+    colors = [
+        '#a34198',
+        '#faa32e',
+        '#ead019',
+        '#89c53f',
+        '#0fa1c6',
+    ],
+>>>>>>> Stashed changes
     [
         [0, 5, 5],
         [5, 5, 0],
@@ -128,7 +170,17 @@ const S = [
 ];
 
 const T = [
+<<<<<<< Updated upstream
     ['#a34198'],
+=======
+    colors = [
+        '#a34198',
+        '#faa32e',
+        '#ead019',
+        '#89c53f',
+        '#0fa1c6',
+    ],
+>>>>>>> Stashed changes
     [
         [0, 6, 0],
         [6, 6, 6],
@@ -152,7 +204,17 @@ const T = [
 ];
 
 const Z = [
+<<<<<<< Updated upstream
     ['#faa32e'],
+=======
+    colors = [
+        '#a34198',
+        '#faa32e',
+        '#ead019',
+        '#89c53f',
+        '#0fa1c6',
+    ],
+>>>>>>> Stashed changes
     [
         [7, 7, 0],
         [0, 7, 7],
@@ -176,7 +238,6 @@ const Z = [
 ];
 
 const color = [
-    null,
     '#a34198',
     '#faa32e',
     '#ead019',

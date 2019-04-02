@@ -1,8 +1,10 @@
 class Drawer {
     constructor(canvas, shape) {
+
         this.canvas = canvas;
         this.shape = shape;
         this.lastTime = 0;
+
     }
     update(time) {
         if (time - this.lastTime >= 600) {

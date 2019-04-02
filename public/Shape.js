@@ -5,7 +5,6 @@ class Shape {
         this.xPos = xPos;
         this.yPos = yPos;
         this.randomShape = shape[Math.floor(Math.random() * shape.length)];
-        this.color = color;
 
     }
 
@@ -14,7 +13,6 @@ class Shape {
             row.forEach((value, x) => {
                 if (value !== 0 && this.yPos >= 0) {
                     this.board.gameBoard[this.yPos + y][this.xPos + x] = num;
-                    console.log(num);
                 }
             });
         });
@@ -44,24 +42,22 @@ class Shape {
         return false;
     }
 
+    setColor() {
+        return this.randomShape[0][0];
+    }
+
     moveDown() {
-<<<<<<< Updated upstream
-
         this.setValueOnTheBoard(0);
-=======
-        let randomColor = this.randomShape[0][0]
-        this.setValueOnTheBoard(randomColor);
->>>>>>> Stashed changes
         this.yPos++;
-
 
         if (this.detectCollision()) {
             this.yPos--;
-            this.setValueOnTheBoard(this.randomShape[0]);
+
+            this.setValueOnTheBoard(this.setColor());
             this.yPos = 0;
             this.randomShape = shape[Math.floor(Math.random() * shape.length)];
         }
-        this.setValueOnTheBoard(this.randomShape[0]);
+        this.setValueOnTheBoard(this.setColor());
     }
 
     moveLeft() {
@@ -71,7 +67,7 @@ class Shape {
         if (this.detectCollision()) {
             this.xPos++;
         }
-        this.setValueOnTheBoard(this.randomShape[0]);
+        this.setValueOnTheBoard(this.setColor());
     }
 
     moveRight() {
@@ -81,7 +77,7 @@ class Shape {
         if (this.detectCollision()) {
             this.xPos--;
         }
-        this.setValueOnTheBoard(this.randomShape[0]);
+        this.setValueOnTheBoard(this.setColor());
     }
 }
 

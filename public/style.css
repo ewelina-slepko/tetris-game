@@ -9,7 +9,7 @@ body {
 body {
     background-image: url("img/background-img.jpg");
     background-size: 220vh 110vh;
-    font-family: 'Inconsolata', monospace;
+    font-family: Consolas;
 }
 
 .canvasContainer {
@@ -25,12 +25,13 @@ canvas {
 }
 
 .nav {
-    font-size: 30px;
+    font-size: 34px;
     color: #e7e7e7;
     font-weight: 900;
     text-align: center;
-    letter-spacing: 8px;
-    padding: 10px;
+    letter-spacing: 11px;
+
+    padding: 5px;
 }
 
 .btnContainer {

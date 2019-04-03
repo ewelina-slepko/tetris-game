@@ -1,10 +1,8 @@
 class Canvas {
     constructor(board, shape) {
-
         this.board = board;
         this.shape = shape;
         this.sqrSize = 30;
-
     }
 
     drawCanvas() {

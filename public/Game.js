@@ -19,6 +19,9 @@ class Game {
             case 39:
                 this.shape.moveRight();
                 break;
+            case 32:
+                this.shape.rotate();
+                break;
         }
     }
 }

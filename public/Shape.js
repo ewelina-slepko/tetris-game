@@ -95,16 +95,14 @@ class Shape {
         if (this.detectCollision()) {
             this.shapeIndex = 1;
             this.yPos--;
-            this.xPos--;
-        }
-
+        };
         this.setValueOnTheBoard(this.setColor());
     }
 }
 
 const activeShape = new Shape(activeBoard, 3, -1);
 
-/* Zmienić zapis tetrominosów na obiekt o dwóch elementach:
+/* 1.  Zmienić zapis tetrominosów na obiekt o dwóch elementach:
 const I = {
 color: '#gsfgfgf',
 shape:  [
@@ -131,4 +129,6 @@ shape:  [
 ]
 
 }
+
+2. Cofnąć rotację w momencie kolizji
 */

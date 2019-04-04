@@ -11,6 +11,12 @@ class Canvas {
                 if (value !== 0) {
                     this.board.ctx.fillStyle = value;
                     this.board.ctx.fillRect(x * this.sqrSize, y * this.sqrSize, this.sqrSize, this.sqrSize);
+
+                    this.board.ctx.strokeRect(x * this.sqrSize, y * this.sqrSize, this.sqrSize, this.sqrSize);
+                    this.board.ctx.shadowColor = '#2e3135';
+                    this.board.ctx.shadowBlur = 3;
+                    this.board.ctx.lineWidth = 0.2;
+                    this.board.ctx.strokeStyle = '#2e3135';
                 }
             });
         });

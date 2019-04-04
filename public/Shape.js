@@ -59,6 +59,7 @@ class Shape {
             this.setValueOnTheBoard(this.setColor());
             this.yPos = 0;
             this.xPos = 3;
+            this.shapeIndex = 1;
             this.randomShape = shape[Math.floor(Math.random() * shape.length)];
         }
 
@@ -88,19 +89,20 @@ class Shape {
     rotate() {
         this.setValueOnTheBoard(0);
         this.shapeIndex++;
-
         if (this.shapeIndex > 4) {
             this.shapeIndex = 1;
         }
         if (this.detectCollision()) {
-            this.shapeIndex = 1;
-            this.yPos--;
-        };
+            if (this.shapeIndex == 1) {
+                this.shapeIndex = 5;
+            };
+            this.shapeIndex--;
+        }
         this.setValueOnTheBoard(this.setColor());
     }
 }
-
 const activeShape = new Shape(activeBoard, 3, -1);
+
 
 /* 1.  Zmienić zapis tetrominosów na obiekt o dwóch elementach:
 const I = {

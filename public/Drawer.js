@@ -1,7 +1,8 @@
 class Drawer {
-    constructor(canvas, shape) {
+    constructor(canvas, shape, board) {
         this.canvas = canvas;
         this.shape = shape;
+        this.board = board;
         this.lastTime = 0;
     }
     update(time) {
@@ -12,8 +13,9 @@ class Drawer {
         this.canvas.clearCanvas();
         this.canvas.drawCanvas();
         this.canvas.drawGrid(300, 600);
+        this.board.clearOccupiedRow();
         requestAnimationFrame(this.update.bind(this));
     }
 }
-const drawing = new Drawer(canvas, activeShape);
+const drawing = new Drawer(canvas, activeShape, activeBoard);
 drawing.update();

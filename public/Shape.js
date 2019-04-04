@@ -133,4 +133,6 @@ shape:  [
 }
 
 2. Cofnąć rotację w momencie kolizji
+3. zrobić przykłady z every
+4. poczytać o outer:
 */

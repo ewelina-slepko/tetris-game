@@ -16,5 +16,3 @@ class Drawer {
         requestAnimationFrame(this.update.bind(this));
     }
 }
-const drawing = new Drawer(canvas, activeShape, activeBoard);
-drawing.update();

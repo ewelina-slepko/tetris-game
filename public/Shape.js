@@ -57,7 +57,7 @@ class Shape {
             this.yPos--;
 
             this.setValueOnTheBoard(this.setColor());
-            this.board.clearOccupiedRow();
+            this.board.clearOccupiedRows();
             this.yPos = 0;
             this.xPos = 3;
             this.shapeIndex = 1;
@@ -102,8 +102,6 @@ class Shape {
         this.setValueOnTheBoard(this.setColor());
     }
 }
-const activeShape = new Shape(activeBoard, 3, -1);
-
 
 /* 1.  Zmienić zapis tetrominosów na obiekt o dwóch elementach:
 const I = {

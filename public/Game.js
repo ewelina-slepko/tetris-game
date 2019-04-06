@@ -1,6 +1,11 @@
 class Game {
-    constructor(shape) {
-        this.shape = shape;
+    constructor() {
+        this.board = new Board(() => this.updateScoring());
+        this.shape = new Shape(this.board, 3, -1);
+        this.canvas = new Canvas(this.board, this.shape);
+        this.drawing = new Drawer(this.canvas, this.shape, this.board);
+        this.drawing.update();
+
         window.addEventListener('keydown', this.onKeydown.bind(this));
         document.getElementById('left').addEventListener('click', () => this.shape.moveLeft());
         document.getElementById('down').addEventListener('click', () => this.shape.moveDown());
@@ -24,5 +29,8 @@ class Game {
                 break;
         }
     }
+    updateScoring() {
+        console.log('dziabadziaba')
+    }
 }
-new Game(activeShape);
+const myGame = new Game();

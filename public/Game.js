@@ -5,6 +5,7 @@ class Game {
         this.canvas = new Canvas(this.board, this.shape);
         this.drawing = new Drawer(this.canvas, this.shape, this.board);
         this.drawing.update();
+        this.score = 0;
 
         window.addEventListener('keydown', this.onKeydown.bind(this));
         document.getElementById('left').addEventListener('click', () => this.shape.moveLeft());
@@ -30,7 +31,8 @@ class Game {
         }
     }
     updateScoring() {
-        console.log('dziabadziaba')
+        const scoring = document.getElementById('counter');
+        scoring.innerHTML = this.score += 30;
     }
 }
 const myGame = new Game();

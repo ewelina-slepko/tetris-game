@@ -16,7 +16,7 @@
     <canvas id="tetris" width="300" height="600"></canvas>
     <div class="scoring">
       <h1>SCORE:
-        <p id="scoring">0</p>
+        <p id="counter">0</p>
       </h1>
     </div>
   </div>
@@ -36,6 +36,15 @@
   <script src="Canvas.js"></script>
   <script src="Drawer.js"></script>
   <script src="Game.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/sw.js')
+        .then(function () {
+          console.log("Service Worker Registered");
+        });
+    }
+  </script>
 </body>
 
 </html>

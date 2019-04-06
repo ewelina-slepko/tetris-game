@@ -1,15 +1,15 @@
 class Board {
-    constructor(shape) {
+    constructor() {
         const canvas = document.getElementById('tetris');
         this.ctx = canvas.getContext('2d');
         this.gameBoard = Array(20).fill(null).map(() => Array(10).fill(0));
-        this.shape = shape;
     }
     clearOccupiedRow() {
-        outer: for (let y = this.gameBoard.length - 1; y > 0; --y) { // iteracja od tyłu, bo większe prawdopodobieństwo, że na dole będzie zapełniony wiersz
+        search: for (let y = this.gameBoard.length - 1; y > 0; --y) {
             for (let x = 0; x < this.gameBoard[y].length; ++x) {
                 if (this.gameBoard[y][x] === 0) {
-                    continue outer;
+                    console.log(x, y);
+                    continue search;
                 }
             }
             const row = this.gameBoard.splice(y, 1)[0].fill(0);

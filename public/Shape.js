@@ -57,6 +57,7 @@ class Shape {
             this.yPos--;
 
             this.setValueOnTheBoard(this.setColor());
+            this.board.clearOccupiedRow();
             this.yPos = 0;
             this.xPos = 3;
             this.shapeIndex = 1;

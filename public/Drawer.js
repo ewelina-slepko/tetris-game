@@ -13,7 +13,6 @@ class Drawer {
         this.canvas.clearCanvas();
         this.canvas.drawCanvas();
         this.canvas.drawGrid(300, 600);
-        this.board.clearOccupiedRow();
         requestAnimationFrame(this.update.bind(this));
     }
 }

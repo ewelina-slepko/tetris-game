@@ -6,13 +6,13 @@ class Drawer {
         this.lastTime = 0;
     }
     update(time) {
-        if (time - this.lastTime >= 600) {
+        if (time - this.lastTime >= 500) {
             this.shape.moveDown();
             this.lastTime = time;
         }
         this.canvas.clearCanvas();
         this.canvas.drawCanvas();
-        this.canvas.drawGrid(300, 600);
+        this.canvas.drawGrid(250, 500);
         requestAnimationFrame(this.update.bind(this));
     }
 }

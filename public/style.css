@@ -10,6 +10,8 @@ body {
     background-image: url("images/background-img.jpg");
     background-size: 220vh 110vh;
     font-family: Consolas;
+    display: flex;
+    flex-direction: column;
 }
 
 .canvasContainer {
@@ -19,24 +21,24 @@ body {
 }
 
 canvas {
+    margin: auto 0;
     background-color: #3d3d3f;
     margin-bottom: 8px;
     border: inset 3px rgb(28, 23, 31);
 }
 
 .nav {
-    font-size: 34px;
+    font-size: 1.5rem;
     color: #e7e7e7;
     font-weight: 900;
     text-align: center;
+    margin: 15px;
     letter-spacing: 11px;
-
-    padding: 5px;
 }
 
 .btnContainer {
     display: flex;
-    margin-right: 8%;
+    margin-right: 5%;
 }
 
 .buttons {
@@ -69,14 +71,16 @@ canvas {
 }
 
 .scoring {
+    margin: auto 0;
     width: 90px;
-    height: 600px;
+    height: 500px;
     background-color: #212122;
     opacity: 0.96;
     font-size: 8px;
     text-align: left;
     color: #666768;
     text-align: center;
+    margin-bottom: 8px;
     border-bottom-right-radius: 3px;
     border-right: inset 3px rgb(37, 30, 41);
     border-top: inset 3px rgb(37, 30, 41);

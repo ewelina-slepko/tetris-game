@@ -2,9 +2,7 @@
   "name": "tetris-game",
   "version": "1.0.0",
   "description": "",
-  "dependencies": {
-    "serviceworker-cache-polyfill": "^4.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.12.0"

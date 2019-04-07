@@ -4,8 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#77f321" />
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
   <title>Tetris Game</title>
 
 </head>
@@ -30,21 +32,21 @@
     </div>
   </div>
 
+
   <script src="Board.js"></script>
   <script src="Tetrominoes.js"></script>
   <script src="Shape.js"></script>
   <script src="Canvas.js"></script>
   <script src="Drawer.js"></script>
   <script src="Game.js"></script>
+
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('/sw.js')
-        .then(function () {
-          console.log("Service Worker Registered");
-        });
+      navigator.serviceWorker.register('service-worker.js');
     }
   </script>
+
+
 </body>
 
 </html>

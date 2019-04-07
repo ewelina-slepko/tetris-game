@@ -1,6 +1,6 @@
 const I = [
 
-    color = ['#07A0C3'],
+    color = ['#993955'],
 
     [
         [0, 0, 1, 0],
@@ -30,7 +30,7 @@ const I = [
 
 const J = [
 
-    color = ['#F0C808'],
+    color = ['#99CA3A'],
 
     [
         [0, 2, 0],
@@ -58,7 +58,7 @@ const J = [
 
 const L = [
 
-    color = ['#FF842A'],
+    color = ['#8127A3'],
 
     [
         [0, 3, 0],
@@ -84,7 +84,7 @@ const L = [
 
 const O = [
 
-    color = ['#285887'],
+    color = ['#CCD6EB'],
 
     [
         [0, 0, 0, 0],
@@ -114,7 +114,7 @@ const O = [
 
 const S = [
 
-    color = ['#6E2A7F'],
+    color = ['#FFEA4C'],
 
     [
         [0, 5, 5],
@@ -140,7 +140,7 @@ const S = [
 
 const T = [
 
-    color = ['#52B748'],
+    color = ['#9CFFFA'],
 
     [
         [0, 6, 0],

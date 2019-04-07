@@ -7,7 +7,7 @@ body {
 }
 
 body {
-    background-image: url("img/background-img.jpg");
+    background-image: url("images/background-img.jpg");
     background-size: 220vh 110vh;
     font-family: Consolas;
 }

@@ -1,8 +1,9 @@
 class Drawer {
-    constructor(canvas, shape, board) {
+    constructor(canvas, shape, board, gameOver) {
         this.canvas = canvas;
         this.shape = shape;
         this.board = board;
+        this.gameOver = gameOver;
         this.lastTime = 0;
     }
     update(time) {

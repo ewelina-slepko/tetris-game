@@ -1,9 +1,9 @@
 class Shape {
-    constructor(board, xPos, yPos) {
+    constructor(board, xPos, yPos, gameOver) {
         this.board = board;
         this.xPos = xPos;
         this.yPos = yPos;
-
+        this.gameOver = gameOver;
         this.randomShape = shape[Math.floor(Math.random() * shape.length)];
         this.shapeIndex = 1;
     }
@@ -63,9 +63,13 @@ class Shape {
             this.shapeIndex = 1;
             this.randomShape = shape[Math.floor(Math.random() * shape.length)];
         }
-
+        const isTopEdge = this.yPos === 0;
+        if (isTopEdge && this.detectCollision()) {
+            this.gameOver();
+        }
         this.setValueOnTheBoard(this.setColor());
     }
+
 
     moveLeft() {
         this.setValueOnTheBoard(0);

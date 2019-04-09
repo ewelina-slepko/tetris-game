@@ -2,6 +2,8 @@ class Board {
     constructor(updateScoring) {
         const canvas = document.getElementById('tetris');
         this.ctx = canvas.getContext('2d');
+        this.ctx.canvas.height = window.innerHeight - 140;
+        this.ctx.canvas.width = (window.innerHeight - 140) / 2;
         this.gameBoard = Array(20).fill(null).map(() => Array(10).fill(0));
         this.updateScoring = updateScoring;
     }

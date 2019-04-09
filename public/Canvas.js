@@ -2,7 +2,7 @@ class Canvas {
     constructor(board, shape) {
         this.board = board;
         this.shape = shape;
-        this.sqrSize = 25;
+        this.sqrSize = (window.innerHeight - 140) / 20;
     }
 
     drawCanvas() {
@@ -20,14 +20,14 @@ class Canvas {
         });
     }
     clearCanvas() {
-        this.board.ctx.clearRect(0, 0, 250, 500);
+        this.board.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
     }
     drawGrid(width, height) {
-        for (let x = 25; x < width; x += 25) {
+        for (let x = this.sqrSize; x < width; x += this.sqrSize) {
             this.board.ctx.fillStyle = '#2d2d2e';
             this.board.ctx.fillRect(x, 0, 1, height);
         }
-        for (let y = 25; y < height; y += 25) {
+        for (let y = this.sqrSize; y < height; y += this.sqrSize) {
             this.board.ctx.fillStyle = '#2d2d2e';
             this.board.ctx.fillRect(0, y, width, 1);
         }

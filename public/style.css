@@ -51,6 +51,7 @@ canvas {
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+
 }
 
 .btn:focus {
@@ -62,7 +63,7 @@ canvas {
 }
 
 .scoring {
-    width: 9rem;
+    width: 11rem;
     background-color: #212122;
     opacity: 0.90;
     font-size: 10px;
@@ -72,4 +73,8 @@ canvas {
     border-right: inset 3px rgb(37, 30, 41);
     border-top: inset 3px rgb(37, 30, 41);
     border-bottom: inset 3px rgb(37, 30, 41);
+}
+
+video {
+    opacity: 0.8;
 }

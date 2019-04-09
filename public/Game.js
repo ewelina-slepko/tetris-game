@@ -7,7 +7,6 @@ class Game {
         this.drawing.update();
         this.scoring = document.getElementById('counter');
         this.score = 0;
-
         window.addEventListener('keydown', this.onKeydown.bind(this));
         document.getElementById('left').addEventListener('click', () => this.shape.moveLeft());
         document.getElementById('down').addEventListener('click', () => this.shape.moveDown());
@@ -47,4 +46,8 @@ class Game {
         }
     }
 }
+
 const myGame = new Game();
+
+
+const sound = document.getElementById('audio');

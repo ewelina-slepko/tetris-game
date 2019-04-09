@@ -13,7 +13,7 @@ class Drawer {
         }
         this.canvas.clearCanvas();
         this.canvas.drawCanvas();
-        this.canvas.drawGrid((window.innerHeight - 140) / 2, innerHeight);
+        this.canvas.drawGrid();
         requestAnimationFrame(this.update.bind(this));
     }
 }

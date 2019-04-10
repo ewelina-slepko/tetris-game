@@ -18,25 +18,27 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 canvas {
-    background-color: #3d3d3f;
-    border: inset 3px rgb(28, 23, 31);
+    background-color: #262728;
+    border: inset 1px rgb(28, 23, 31);
+    opacity: 0.97;
 }
 
 .nav {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     color: #e7e7e7;
     font-weight: 900;
     text-align: center;
-    margin: 0.3rem;
-    letter-spacing: 11px;
+    margin: 0.4rem;
+    letter-spacing: 12px;
 }
 
 .btnContainer {
     display: flex;
+    margin-right: 6%;
 }
 
 .buttons {
@@ -44,14 +46,14 @@ canvas {
 }
 
 .btn {
-    background-color: #e7e7e7;
+    background-color: #d2d5db;
     color: black;
     border-radius: 12px;
-    padding: 0.8rem 1.2rem;
+    padding: 0.7rem 1.1rem;
+    margin: 0.1rem;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-
 }
 
 .btn:focus {
@@ -63,18 +65,16 @@ canvas {
 }
 
 .scoring {
-    width: 11rem;
+    width: 12rem;
     background-color: #212122;
-    opacity: 0.90;
+    opacity: 0.86;
     font-size: 10px;
     color: #666768;
     text-align: center;
     border-bottom-right-radius: 3px;
-    border-right: inset 3px rgb(37, 30, 41);
-    border-top: inset 3px rgb(37, 30, 41);
-    border-bottom: inset 3px rgb(37, 30, 41);
 }
 
 video {
-    opacity: 0.8;
+    margin-top: 0.7rem;
+    opacity: 0.18;
 }

@@ -2,13 +2,13 @@ class Canvas {
     constructor(board, shape) {
         const canvas = document.getElementById('tetris');
         this.ctx = canvas.getContext('2d');
-        this.ctx.canvas.height = window.innerHeight - 220;
-        this.ctx.canvas.width = (window.innerHeight - 220) / 2;
+        this.ctx.canvas.height = window.innerHeight - 160;
+        this.ctx.canvas.width = (window.innerHeight - 160) / 2;
         this.board = board;
         this.shape = shape;
-        this.sqrSize = (window.innerHeight - 220) / 20;
-        this.height = window.innerHeight - 220;
-        this.width = (window.innerHeight - 220) / 2;
+        this.sqrSize = (window.innerHeight - 160) / 20;
+        this.width = (window.innerHeight - 160) / 2;
+        this.height = window.innerHeight - 160;
     }
 
     drawCanvas() {
@@ -19,7 +19,7 @@ class Canvas {
                     this.board.ctx.fillRect(x * this.sqrSize, y * this.sqrSize, this.sqrSize, this.sqrSize);
                     this.board.ctx.strokeRect(x * this.sqrSize, y * this.sqrSize, this.sqrSize, this.sqrSize);
                     this.board.ctx.shadowColor = '#2e3135';
-                    this.board.ctx.lineWidth = 2;
+                    this.board.ctx.lineWidth = 1;
                     this.board.ctx.strokeStyle = '#2e3135';
                 }
             });
@@ -30,11 +30,11 @@ class Canvas {
     }
     drawGrid() {
         for (let x = this.sqrSize; x < this.width; x += this.sqrSize) {
-            this.board.ctx.fillStyle = '#2d2d2e';
+            this.board.ctx.fillStyle = '#424344';
             this.board.ctx.fillRect(x, 0, 1, this.height);
         }
         for (let y = this.sqrSize; y < this.height; y += this.sqrSize) {
-            this.board.ctx.fillStyle = '#2d2d2e';
+            this.board.ctx.fillStyle = '#424344';
             this.board.ctx.fillRect(0, y, this.width, 1);
         }
     }

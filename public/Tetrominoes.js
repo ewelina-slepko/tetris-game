@@ -181,6 +181,4 @@ const Z = [
         [7, 0, 0],
     ],
 ];
-
-
 const shape = [I, J, L, O, S, T, Z];

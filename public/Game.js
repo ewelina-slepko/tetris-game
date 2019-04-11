@@ -46,8 +46,4 @@ class Game {
         }
     }
 }
-
 const myGame = new Game();
-
-
-const sound = document.getElementById('audio');

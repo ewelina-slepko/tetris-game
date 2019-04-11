@@ -71,7 +71,6 @@ class Shape {
         this.setValueOnTheBoard(this.setColor());
     }
 
-
     moveLeft() {
         this.setValueOnTheBoard(0);
         this.xPos--;
@@ -107,36 +106,3 @@ class Shape {
         this.setValueOnTheBoard(this.setColor());
     }
 }
-
-/* 1.  Zmienić zapis tetrominosów na obiekt o dwóch elementach:
-const I = {
-color: '#gsfgfgf',
-shape:  [
-[
-        [0, 2, 0],
-        [0, 2, 0],
-        [2, 2, 0]
-    ],
-    [
-        [2, 0, 0],
-        [2, 2, 2],
-        [0, 0, 0]
-    ],
-    [
-        [0, 2, 2],
-        [0, 2, 0],
-        [0, 2, 0]
-    ],
-    [
-        [0, 0, 0],
-        [2, 2, 2],
-        [0, 0, 2]
-    ]
-]
-
-}
-
-2. Cofnąć rotację w momencie kolizji
-3. zrobić przykłady z every
-4. poczytać o outer:
-*/

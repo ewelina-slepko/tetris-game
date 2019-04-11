@@ -7,11 +7,11 @@ body {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     background-image: url("images/background-img.jpg");
     background-size: 210vh 105vh;
     font-family: Consolas;
-    display: flex;
-    flex-direction: column;
 }
 
 .canvasContainer {
@@ -27,13 +27,13 @@ canvas {
     opacity: 0.97;
 }
 
-.nav {
+.title {
     font-size: 1.7rem;
     color: #e7e7e7;
-    font-weight: 900;
     text-align: center;
-    margin: 0.4rem;
+    font-weight: 900;
     letter-spacing: 12px;
+    margin: 0.4rem;
 }
 
 .btnContainer {
@@ -62,6 +62,7 @@ canvas {
 
 .btn:active {
     border: 2px inset #555555;
+    outline: none;
 }
 
 .scoring {
@@ -77,4 +78,5 @@ canvas {
 video {
     margin-top: 0.7rem;
     opacity: 0.18;
+    outline: none;
 }

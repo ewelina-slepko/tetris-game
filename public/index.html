@@ -14,11 +14,9 @@
 <body>
   <div class="title">
     TETRIS GAME
-    <video controls="" autoplay="" name="media" width="180px" height="20px">
-      <source src="sound/audio.mp3" type="audio/mpeg">
-    </video>
+    <audio id="score_audio" src="sound/score_sound.wav"></audio>
+    <audio id="bottom_audio" src="sound/bottom_sound.wav"></audio>
   </div>
-
   <div class="canvasContainer">
     <canvas id="tetris"></canvas>
     <div class="scoring">
@@ -34,6 +32,13 @@
       <button id="down" class="btn"><i class="material-icons">keyboard_arrow_down</i></button>
       <button id="right" class="btn"><i class="material-icons">keyboard_arrow_right</i></button>
       <button id="rotation" class="btn"><i class="material-icons">refresh</i></button>
+    </div>
+  </div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <p id="finalScore">GAME OVER</p>
+      <button class="close">Play again</button>
     </div>
   </div>
 

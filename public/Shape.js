@@ -55,9 +55,7 @@ class Shape {
 
         if (this.detectCollision()) {
             this.yPos--;
-
             this.setValueOnTheBoard(this.setColor());
-
             this.board.clearOccupiedRows()
             this.yPos = 0;
             this.xPos = 3;

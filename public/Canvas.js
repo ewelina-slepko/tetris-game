@@ -15,27 +15,27 @@ class Canvas {
         this.board.gameBoard.forEach((row, y) => {
             row.forEach((value, x) => {
                 if (value !== 0) {
-                    this.board.ctx.fillStyle = value;
-                    this.board.ctx.fillRect(x * this.sqrSize, y * this.sqrSize, this.sqrSize, this.sqrSize);
-                    this.board.ctx.strokeRect(x * this.sqrSize, y * this.sqrSize, this.sqrSize, this.sqrSize);
-                    this.board.ctx.shadowColor = '#2e3135';
-                    this.board.ctx.lineWidth = 1;
-                    this.board.ctx.strokeStyle = '#2e3135';
+                    this.ctx.fillStyle = value;
+                    this.ctx.fillRect(x * this.sqrSize, y * this.sqrSize, this.sqrSize, this.sqrSize);
+                    this.ctx.strokeRect(x * this.sqrSize, y * this.sqrSize, this.sqrSize, this.sqrSize);
+                    this.ctx.shadowColor = '#2e3135';
+                    this.ctx.lineWidth = 1;
+                    this.ctx.strokeStyle = '#2e3135';
                 }
             });
         });
     }
     clearCanvas() {
-        this.board.ctx.clearRect(0, 0, this.width, this.height);
+        this.ctx.clearRect(0, 0, this.width, this.height);
     }
     drawGrid() {
         for (let x = this.sqrSize; x < this.width; x += this.sqrSize) {
-            this.board.ctx.fillStyle = '#424344';
-            this.board.ctx.fillRect(x, 0, 1, this.height);
+            this.ctx.fillStyle = '#424344';
+            this.ctx.fillRect(x, 0, 1, this.height);
         }
         for (let y = this.sqrSize; y < this.height; y += this.sqrSize) {
-            this.board.ctx.fillStyle = '#424344';
-            this.board.ctx.fillRect(0, y, this.width, 1);
+            this.ctx.fillStyle = '#424344';
+            this.ctx.fillRect(0, y, this.width, 1);
         }
     }
 }

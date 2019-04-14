@@ -1,5 +1,5 @@
 # Tetris Game
-![screenshot](public/images/tetris_screenshot.png)
+![screenshot](public/images/tetris_scrshot.png)
 
 ## Table of contents
 * [General info](#general-info)

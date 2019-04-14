@@ -1,6 +1,6 @@
 # Tetris Game
 Tile-matching puzzle game.
-![Example screenshot](./images/tetris_screenshot.png)
+![Example screenshot](./images/tetris_scrshot.png)
 
 ## Table of contents
 * [General info](#general-info)

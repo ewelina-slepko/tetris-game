@@ -1,12 +1,12 @@
 class Board {
     constructor(updateScoring) {
         this.gameBoard = Array(20).fill(null).map(() => Array(10).fill(0));
-        this.updateScoring = updateScoring;
         this.scoreAudio = document.getElementById('score_audio');
         this.bottomAudio = document.getElementById('bottom_audio');
+        this.updateScoring = updateScoring;
     }
     clearOccupiedRows() {
-        bottom_audio.volume = 0.1;
+        bottom_audio.volume = 0.5;
         this.bottomAudio.play();
         search: for (let y = this.gameBoard.length - 1; y > 0; y--) {
             for (let x = 0; x < this.gameBoard[y].length; ++x) {

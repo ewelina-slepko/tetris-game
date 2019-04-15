@@ -34,7 +34,7 @@ class Game {
         }
     }
     updateScoring() {
-        this.scoring.innerHTML = this.score += 30;
+        this.scoring.innerHTML = this.score += 90;
     }
     gameOver() {
         for (let y = 0; y < this.board.gameBoard.length; y++) {

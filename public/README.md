@@ -30,19 +30,19 @@ You can use the buttons to manipulate tetromino or control it on the keyboard:
 
 ## Setup
 
-# Clone this repository
+* Clone this repository
 $ git clone https://github.com/ewelina-slepko/tetris-game
 
-# Go into the repository
+* Go into the repository
 $ cd tetris-game
 
-# Install dependencies
+* Install dependencies
 $ npm install
 
-# Run the app
+* Run the app
 $ npm start
 
-# Progressive Web App
+* Progressive Web App
 The play [page](https://tetris-game-2630d.firebaseapp.com/) is served as a PWA, so you can play the game offline on your phone.
 
 

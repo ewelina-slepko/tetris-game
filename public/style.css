@@ -69,13 +69,28 @@ canvas {
     width: 8rem;
     background-color: #212122;
     opacity: 0.86;
-    font-size: 10px;
+    font-size: 8px;
     color: #666768;
     text-align: center;
     border-bottom-right-radius: 3px;
 }
+
 .higherSpeedInfo {
     color:#a51818;
+}
+.levelHeader{
+    margin-top: 5vh;
+}
+
+.scoreHeader{
+    margin-top: 5vh;;
+}
+
+.level{
+    margin-top: 1vh;
+}
+.counter{
+    margin-top: 1vh;    
 }
 
 .modal {

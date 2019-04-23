@@ -1,10 +1,9 @@
 class Board {
-    constructor(updateScoring, updateLevel) {
+    constructor(updateScoring) {
         this.gameBoard = Array(20).fill(null).map(() => Array(10).fill(0));
         this.scoreAudio = document.getElementById('score_audio');
         this.bottomAudio = document.getElementById('bottom_audio');
         this.updateScoring = updateScoring;
-        this.updateLevel = updateLevel;
     }
     clearOccupiedRows() {
         bottom_audio.volume = 0.5;

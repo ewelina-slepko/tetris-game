@@ -2,11 +2,11 @@ class Canvas {
     constructor(board, shape) {
         const canvas = document.getElementById('tetris');
         this.ctx = canvas.getContext('2d');
-        this.ctx.canvas.height = Math.floor((window.innerHeight - 140) / 20) * 20;
-        this.ctx.canvas.width = Math.floor((window.innerHeight - 140) / 20) * 20 / 2;
+        this.sqrSize = Math.floor((window.innerHeight - 140) / 20);
+        this.ctx.canvas.height = this.sqrSize * 20;
+        this.ctx.canvas.width = this.sqrSize * 10;
         this.board = board;
         this.shape = shape;
-        this.sqrSize = Math.floor((window.innerHeight - 140) / 20);
     }
 
     drawCanvas() {

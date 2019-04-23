@@ -74,6 +74,9 @@ canvas {
     text-align: center;
     border-bottom-right-radius: 3px;
 }
+.higherSpeedInfo {
+    color:#a51818;
+}
 
 .modal {
     display: none;

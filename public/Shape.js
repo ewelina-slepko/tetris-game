@@ -6,6 +6,7 @@ class Shape {
         this.gameOver = gameOver;
         this.randomShape = shape[Math.floor(Math.random() * shape.length)];
         this.shapeIndex = 1;
+        this.higherSpeedInfo = document.getElementsByClassName('higherSpeedInfo')[0];
     }
 
     setValueOnTheBoard(valueOfOccupiedPiece) {
@@ -102,5 +103,6 @@ class Shape {
             this.shapeIndex--;
         }
         this.setValueOnTheBoard(this.setColor());
+        this.higherSpeedInfo.innerHTML = '';
     }
 }

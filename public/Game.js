@@ -7,7 +7,6 @@ class Game {
         this.scoring = document.getElementById('counter');
         this.level = document.getElementById('level');
         this.finalScore = document.getElementById('finalScore');
-        this.higherSpeedInfo = document.getElementsByClassName('higherSpeedInfo')[0];
         this.modal = document.getElementById('myModal');
         document.getElementsByClassName('close')[0].addEventListener('click', () => this.closeModal());
         document.getElementById('left').addEventListener('click', () => this.shape.moveLeft());
@@ -32,7 +31,6 @@ class Game {
                 break;
             case 32:
                 this.shape.rotate();
-                this.higherSpeedInfo.innerHTML = '';
                 break;
         }
     }
@@ -40,7 +38,7 @@ class Game {
         this.scoring.innerHTML = this.score += 90;
         if (this.score === 360 || this.score === 720 || this.score === 1440 || this.score === 2880) {
             this.level.innerHTML = this.drawing.entryLevel += 1;
-            this.higherSpeedInfo.innerHTML = 'TRY FASTER!';
+            this.shape.higherSpeedInfo.innerHTML = 'TRY FASTER!';
         }
     }
 
@@ -59,7 +57,7 @@ class Game {
         this.modal.style.display = 'none';
         this.score = 0;
         this.scoring.innerHTML = this.score;
-        this.drawing.level = 0;
+        this.drawing.entryLevel = 1;
         this.level.innerHTML = 1;
         this.shape.setValueOnTheBoard(0);
         this.shape.yPos = -1;
